@@ -79,7 +79,7 @@ total = cart_rank + np.sum(nbr_buf, dtype=np.int64)
 avg_5 = total / 5.0
 
 print(f'After all communication, coords {coords} have neighbours values {nbr_buf} + own {cart_rank}  '
-      f'-> average = {avg_5}')
+      f'-> average = {avg_5}', flush=True)
 
 # ------------------------------------------------------------------
 # 3) Build row- and column- subcommunicators & compute averages
@@ -108,7 +108,7 @@ col_avg = col_result[0] / col_comm.Get_size()
 print(f"[W{world_rank:2d} C{cart_rank:2d} at {coords}] "
                 f"nbrs(N,S,E,W)={tuple(int(x) for x in nbr_buf)}  "
                 f"avg5={avg_5:.2f}  "
-                f"row_avg={row_avg:.2f}  col_avg={col_avg:.2f}")
+                f"row_avg={row_avg:.2f}  col_avg={col_avg:.2f}", flush=True)
 
 
 # ------------------------------------------------------------------
@@ -122,4 +122,4 @@ execution_time = end_time - start_time
 max_time = world_comm.reduce(execution_time, op=MPI.MAX, root=0)
 
 if world_rank == 0:
-    print(f"\nScript execution time: {max_time:.5f} seconds\n")
+    print(f"\nScript execution time: {max_time:.5f} seconds\n", flush=True)
