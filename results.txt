@@ -1,0 +1,465 @@
+2
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 2x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 2x1 grid
+After all communication, coords [0, 0] have neighbours values [1 1 0 0] + own 0  -> average = 0.4
+After all communication, coords [1, 0] have neighbours values [0 0 1 1] + own 1  -> average = 0.6
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 1, 0, 0)  avg5=0.40  row_avg=0.00  col_avg=0.50
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(0, 0, 1, 1)  avg5=0.60  row_avg=1.00  col_avg=0.50
+
+Script execution time: 0.03056 seconds
+
+3
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 3x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 3x1 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [2, 0] of 3x1 grid
+After all communication, coords [0, 0] have neighbours values [1 2 0 0] + own 0  -> average = 0.6
+After all communication, coords [1, 0] have neighbours values [2 0 1 1] + own 1  -> average = 1.0
+After all communication, coords [2, 0] have neighbours values [0 1 2 2] + own 2  -> average = 1.4
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 2, 0, 0)  avg5=0.60  row_avg=0.00  col_avg=1.00
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(2, 0, 1, 1)  avg5=1.00  row_avg=1.00  col_avg=1.00
+[W 2 C 2 at [2, 0]] nbrs(N,S,E,W)=(0, 1, 2, 2)  avg5=1.40  row_avg=2.00  col_avg=1.00
+
+Script execution time: 0.02954 seconds
+
+4
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 2x2 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 2x2 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [1, 0] of 2x2 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 1] of 2x2 grid
+After all communication, coords [0, 0] have neighbours values [2 2 1 1] + own 0  -> average = 1.2
+After all communication, coords [0, 1] have neighbours values [3 3 0 0] + own 1  -> average = 1.4
+After all communication, coords [1, 0] have neighbours values [0 0 3 3] + own 2  -> average = 1.6
+After all communication, coords [1, 1] have neighbours values [1 1 2 2] + own 3  -> average = 1.8
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(2, 2, 1, 1)  avg5=1.20  row_avg=0.50  col_avg=1.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(3, 3, 0, 0)  avg5=1.40  row_avg=0.50  col_avg=2.00
+[W 2 C 2 at [1, 0]] nbrs(N,S,E,W)=(0, 0, 3, 3)  avg5=1.60  row_avg=2.50  col_avg=1.00
+[W 3 C 3 at [1, 1]] nbrs(N,S,E,W)=(1, 1, 2, 2)  avg5=1.80  row_avg=2.50  col_avg=2.00
+
+Script execution time: 0.01241 seconds
+
+5
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 5x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 5x1 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [2, 0] of 5x1 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [3, 0] of 5x1 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [4, 0] of 5x1 grid
+After all communication, coords [0, 0] have neighbours values [1 4 0 0] + own 0  -> average = 1.0
+After all communication, coords [1, 0] have neighbours values [2 0 1 1] + own 1  -> average = 1.0
+After all communication, coords [2, 0] have neighbours values [3 1 2 2] + own 2  -> average = 2.0
+After all communication, coords [3, 0] have neighbours values [4 2 3 3] + own 3  -> average = 3.0
+After all communication, coords [4, 0] have neighbours values [0 3 4 4] + own 4  -> average = 3.0
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 4, 0, 0)  avg5=1.00  row_avg=0.00  col_avg=2.00
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(2, 0, 1, 1)  avg5=1.00  row_avg=1.00  col_avg=2.00
+[W 2 C 2 at [2, 0]] nbrs(N,S,E,W)=(3, 1, 2, 2)  avg5=2.00  row_avg=2.00  col_avg=2.00
+[W 3 C 3 at [3, 0]] nbrs(N,S,E,W)=(4, 2, 3, 3)  avg5=3.00  row_avg=3.00  col_avg=2.00
+[W 4 C 4 at [4, 0]] nbrs(N,S,E,W)=(0, 3, 4, 4)  avg5=3.00  row_avg=4.00  col_avg=2.00
+
+Script execution time: 0.04750 seconds
+
+6
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 3x2 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 3x2 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [1, 0] of 3x2 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 1] of 3x2 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [2, 0] of 3x2 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [2, 1] of 3x2 grid
+After all communication, coords [0, 0] have neighbours values [2 4 1 1] + own 0  -> average = 1.6
+After all communication, coords [0, 1] have neighbours values [3 5 0 0] + own 1  -> average = 1.8
+After all communication, coords [1, 0] have neighbours values [4 0 3 3] + own 2  -> average = 2.4
+After all communication, coords [1, 1] have neighbours values [5 1 2 2] + own 3  -> average = 2.6
+After all communication, coords [2, 0] have neighbours values [0 2 5 5] + own 4  -> average = 3.2
+After all communication, coords [2, 1] have neighbours values [1 3 4 4] + own 5  -> average = 3.4
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(2, 4, 1, 1)  avg5=1.60  row_avg=0.50  col_avg=2.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(3, 5, 0, 0)  avg5=1.80  row_avg=0.50  col_avg=3.00
+[W 2 C 2 at [1, 0]] nbrs(N,S,E,W)=(4, 0, 3, 3)  avg5=2.40  row_avg=2.50  col_avg=2.00
+[W 3 C 3 at [1, 1]] nbrs(N,S,E,W)=(5, 1, 2, 2)  avg5=2.60  row_avg=2.50  col_avg=3.00
+[W 4 C 4 at [2, 0]] nbrs(N,S,E,W)=(0, 2, 5, 5)  avg5=3.20  row_avg=4.50  col_avg=2.00
+[W 5 C 5 at [2, 1]] nbrs(N,S,E,W)=(1, 3, 4, 4)  avg5=3.40  row_avg=4.50  col_avg=3.00
+
+Script execution time: 0.02374 seconds
+
+7
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 7x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 7x1 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [2, 0] of 7x1 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [3, 0] of 7x1 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [4, 0] of 7x1 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [5, 0] of 7x1 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [6, 0] of 7x1 grid
+After all communication, coords [0, 0] have neighbours values [1 6 0 0] + own 0  -> average = 1.4
+After all communication, coords [1, 0] have neighbours values [2 0 1 1] + own 1  -> average = 1.0
+After all communication, coords [2, 0] have neighbours values [3 1 2 2] + own 2  -> average = 2.0
+After all communication, coords [3, 0] have neighbours values [4 2 3 3] + own 3  -> average = 3.0
+After all communication, coords [4, 0] have neighbours values [5 3 4 4] + own 4  -> average = 4.0
+After all communication, coords [5, 0] have neighbours values [6 4 5 5] + own 5  -> average = 5.0
+After all communication, coords [6, 0] have neighbours values [0 5 6 6] + own 6  -> average = 4.6
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 6, 0, 0)  avg5=1.40  row_avg=0.00  col_avg=3.00
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(2, 0, 1, 1)  avg5=1.00  row_avg=1.00  col_avg=3.00
+[W 2 C 2 at [2, 0]] nbrs(N,S,E,W)=(3, 1, 2, 2)  avg5=2.00  row_avg=2.00  col_avg=3.00
+[W 3 C 3 at [3, 0]] nbrs(N,S,E,W)=(4, 2, 3, 3)  avg5=3.00  row_avg=3.00  col_avg=3.00
+[W 4 C 4 at [4, 0]] nbrs(N,S,E,W)=(5, 3, 4, 4)  avg5=4.00  row_avg=4.00  col_avg=3.00
+[W 5 C 5 at [5, 0]] nbrs(N,S,E,W)=(6, 4, 5, 5)  avg5=5.00  row_avg=5.00  col_avg=3.00
+[W 6 C 6 at [6, 0]] nbrs(N,S,E,W)=(0, 5, 6, 6)  avg5=4.60  row_avg=6.00  col_avg=3.00
+
+Script execution time: 0.01478 seconds
+
+8
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 4x2 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 4x2 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [1, 0] of 4x2 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 1] of 4x2 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [2, 0] of 4x2 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [2, 1] of 4x2 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [3, 0] of 4x2 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [3, 1] of 4x2 grid
+After all communication, coords [0, 0] have neighbours values [2 6 1 1] + own 0  -> average = 2.0
+After all communication, coords [0, 1] have neighbours values [3 7 0 0] + own 1  -> average = 2.2
+After all communication, coords [1, 0] have neighbours values [4 0 3 3] + own 2  -> average = 2.4
+After all communication, coords [1, 1] have neighbours values [5 1 2 2] + own 3  -> average = 2.6
+After all communication, coords [2, 0] have neighbours values [6 2 5 5] + own 4  -> average = 4.4
+After all communication, coords [2, 1] have neighbours values [7 3 4 4] + own 5  -> average = 4.6
+After all communication, coords [3, 0] have neighbours values [0 4 7 7] + own 6  -> average = 4.8
+After all communication, coords [3, 1] have neighbours values [1 5 6 6] + own 7  -> average = 5.0
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(2, 6, 1, 1)  avg5=2.00  row_avg=0.50  col_avg=3.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(3, 7, 0, 0)  avg5=2.20  row_avg=0.50  col_avg=4.00
+[W 2 C 2 at [1, 0]] nbrs(N,S,E,W)=(4, 0, 3, 3)  avg5=2.40  row_avg=2.50  col_avg=3.00
+[W 3 C 3 at [1, 1]] nbrs(N,S,E,W)=(5, 1, 2, 2)  avg5=2.60  row_avg=2.50  col_avg=4.00
+[W 4 C 4 at [2, 0]] nbrs(N,S,E,W)=(6, 2, 5, 5)  avg5=4.40  row_avg=4.50  col_avg=3.00
+[W 5 C 5 at [2, 1]] nbrs(N,S,E,W)=(7, 3, 4, 4)  avg5=4.60  row_avg=4.50  col_avg=4.00
+[W 6 C 6 at [3, 0]] nbrs(N,S,E,W)=(0, 4, 7, 7)  avg5=4.80  row_avg=6.50  col_avg=3.00
+[W 7 C 7 at [3, 1]] nbrs(N,S,E,W)=(1, 5, 6, 6)  avg5=5.00  row_avg=6.50  col_avg=4.00
+
+Script execution time: 0.01701 seconds
+
+9
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 3x3 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 3x3 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [0, 2] of 3x3 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 0] of 3x3 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [1, 1] of 3x3 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [1, 2] of 3x3 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [2, 0] of 3x3 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [2, 1] of 3x3 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [2, 2] of 3x3 grid
+After all communication, coords [0, 0] have neighbours values [3 6 2 1] + own 0  -> average = 2.4
+After all communication, coords [0, 1] have neighbours values [4 7 0 2] + own 1  -> average = 2.8
+After all communication, coords [0, 2] have neighbours values [5 8 1 0] + own 2  -> average = 3.2
+After all communication, coords [1, 0] have neighbours values [6 0 5 4] + own 3  -> average = 3.6
+After all communication, coords [1, 1] have neighbours values [7 1 3 5] + own 4  -> average = 4.0
+After all communication, coords [1, 2] have neighbours values [8 2 4 3] + own 5  -> average = 4.4
+After all communication, coords [2, 0] have neighbours values [0 3 8 7] + own 6  -> average = 4.8
+After all communication, coords [2, 1] have neighbours values [1 4 6 8] + own 7  -> average = 5.2
+After all communication, coords [2, 2] have neighbours values [2 5 7 6] + own 8  -> average = 5.6
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(3, 6, 2, 1)  avg5=2.40  row_avg=1.00  col_avg=3.00
+[W 2 C 2 at [0, 2]] nbrs(N,S,E,W)=(5, 8, 1, 0)  avg5=3.20  row_avg=1.00  col_avg=5.00
+[W 3 C 3 at [1, 0]] nbrs(N,S,E,W)=(6, 0, 5, 4)  avg5=3.60  row_avg=4.00  col_avg=3.00
+[W 4 C 4 at [1, 1]] nbrs(N,S,E,W)=(7, 1, 3, 5)  avg5=4.00  row_avg=4.00  col_avg=4.00
+[W 5 C 5 at [1, 2]] nbrs(N,S,E,W)=(8, 2, 4, 3)  avg5=4.40  row_avg=4.00  col_avg=5.00
+[W 6 C 6 at [2, 0]] nbrs(N,S,E,W)=(0, 3, 8, 7)  avg5=4.80  row_avg=7.00  col_avg=3.00
+[W 7 C 7 at [2, 1]] nbrs(N,S,E,W)=(1, 4, 6, 8)  avg5=5.20  row_avg=7.00  col_avg=4.00
+[W 8 C 8 at [2, 2]] nbrs(N,S,E,W)=(2, 5, 7, 6)  avg5=5.60  row_avg=7.00  col_avg=5.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(4, 7, 0, 2)  avg5=2.80  row_avg=1.00  col_avg=4.00
+
+Script execution time: 0.01662 seconds
+
+10
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 5x2 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 5x2 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [1, 0] of 5x2 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 1] of 5x2 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [2, 0] of 5x2 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [2, 1] of 5x2 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [3, 0] of 5x2 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [3, 1] of 5x2 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [4, 0] of 5x2 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [4, 1] of 5x2 grid
+After all communication, coords [0, 0] have neighbours values [2 8 1 1] + own 0  -> average = 2.4
+After all communication, coords [0, 1] have neighbours values [3 9 0 0] + own 1  -> average = 2.6
+After all communication, coords [1, 0] have neighbours values [4 0 3 3] + own 2  -> average = 2.4
+After all communication, coords [1, 1] have neighbours values [5 1 2 2] + own 3  -> average = 2.6
+After all communication, coords [2, 0] have neighbours values [6 2 5 5] + own 4  -> average = 4.4
+After all communication, coords [2, 1] have neighbours values [7 3 4 4] + own 5  -> average = 4.6
+After all communication, coords [3, 0] have neighbours values [8 4 7 7] + own 6  -> average = 6.4
+After all communication, coords [3, 1] have neighbours values [9 5 6 6] + own 7  -> average = 6.6
+After all communication, coords [4, 0] have neighbours values [0 6 9 9] + own 8  -> average = 6.4
+After all communication, coords [4, 1] have neighbours values [1 7 8 8] + own 9  -> average = 6.6
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(2, 8, 1, 1)  avg5=2.40  row_avg=0.50  col_avg=4.00
+[W 2 C 2 at [1, 0]] nbrs(N,S,E,W)=(4, 0, 3, 3)  avg5=2.40  row_avg=2.50  col_avg=4.00
+[W 4 C 4 at [2, 0]] nbrs(N,S,E,W)=(6, 2, 5, 5)  avg5=4.40  row_avg=4.50  col_avg=4.00
+[W 6 C 6 at [3, 0]] nbrs(N,S,E,W)=(8, 4, 7, 7)  avg5=6.40  row_avg=6.50  col_avg=4.00
+[W 8 C 8 at [4, 0]] nbrs(N,S,E,W)=(0, 6, 9, 9)  avg5=6.40  row_avg=8.50  col_avg=4.00
+[W 5 C 5 at [2, 1]] nbrs(N,S,E,W)=(7, 3, 4, 4)  avg5=4.60  row_avg=4.50  col_avg=5.00
+[W 7 C 7 at [3, 1]] nbrs(N,S,E,W)=(9, 5, 6, 6)  avg5=6.60  row_avg=6.50  col_avg=5.00
+[W 9 C 9 at [4, 1]] nbrs(N,S,E,W)=(1, 7, 8, 8)  avg5=6.60  row_avg=8.50  col_avg=5.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(3, 9, 0, 0)  avg5=2.60  row_avg=0.50  col_avg=5.00
+[W 3 C 3 at [1, 1]] nbrs(N,S,E,W)=(5, 1, 2, 2)  avg5=2.60  row_avg=2.50  col_avg=5.00
+
+Script execution time: 0.00508 seconds
+
+11
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 11x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 11x1 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [2, 0] of 11x1 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [3, 0] of 11x1 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [4, 0] of 11x1 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [5, 0] of 11x1 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [6, 0] of 11x1 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [7, 0] of 11x1 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [8, 0] of 11x1 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [9, 0] of 11x1 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [10, 0] of 11x1 grid
+After all communication, coords [0, 0] have neighbours values [ 1 10  0  0] + own 0  -> average = 2.2
+After all communication, coords [1, 0] have neighbours values [2 0 1 1] + own 1  -> average = 1.0
+After all communication, coords [2, 0] have neighbours values [3 1 2 2] + own 2  -> average = 2.0
+After all communication, coords [3, 0] have neighbours values [4 2 3 3] + own 3  -> average = 3.0
+After all communication, coords [4, 0] have neighbours values [5 3 4 4] + own 4  -> average = 4.0
+After all communication, coords [5, 0] have neighbours values [6 4 5 5] + own 5  -> average = 5.0
+After all communication, coords [6, 0] have neighbours values [7 5 6 6] + own 6  -> average = 6.0
+After all communication, coords [7, 0] have neighbours values [8 6 7 7] + own 7  -> average = 7.0
+After all communication, coords [8, 0] have neighbours values [9 7 8 8] + own 8  -> average = 8.0
+After all communication, coords [9, 0] have neighbours values [10  8  9  9] + own 9  -> average = 9.0
+After all communication, coords [10, 0] have neighbours values [ 0  9 10 10] + own 10  -> average = 7.8
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 10, 0, 0)  avg5=2.20  row_avg=0.00  col_avg=5.00
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(2, 0, 1, 1)  avg5=1.00  row_avg=1.00  col_avg=5.00
+[W 2 C 2 at [2, 0]] nbrs(N,S,E,W)=(3, 1, 2, 2)  avg5=2.00  row_avg=2.00  col_avg=5.00
+[W 3 C 3 at [3, 0]] nbrs(N,S,E,W)=(4, 2, 3, 3)  avg5=3.00  row_avg=3.00  col_avg=5.00
+[W 4 C 4 at [4, 0]] nbrs(N,S,E,W)=(5, 3, 4, 4)  avg5=4.00  row_avg=4.00  col_avg=5.00
+[W 5 C 5 at [5, 0]] nbrs(N,S,E,W)=(6, 4, 5, 5)  avg5=5.00  row_avg=5.00  col_avg=5.00
+[W 6 C 6 at [6, 0]] nbrs(N,S,E,W)=(7, 5, 6, 6)  avg5=6.00  row_avg=6.00  col_avg=5.00
+[W 7 C 7 at [7, 0]] nbrs(N,S,E,W)=(8, 6, 7, 7)  avg5=7.00  row_avg=7.00  col_avg=5.00
+[W 8 C 8 at [8, 0]] nbrs(N,S,E,W)=(9, 7, 8, 8)  avg5=8.00  row_avg=8.00  col_avg=5.00
+[W 9 C 9 at [9, 0]] nbrs(N,S,E,W)=(10, 8, 9, 9)  avg5=9.00  row_avg=9.00  col_avg=5.00
+[W10 C10 at [10, 0]] nbrs(N,S,E,W)=(0, 9, 10, 10)  avg5=7.80  row_avg=10.00  col_avg=5.00
+
+Script execution time: 0.02005 seconds
+
+12
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 4x3 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 4x3 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [0, 2] of 4x3 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 0] of 4x3 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [1, 1] of 4x3 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [1, 2] of 4x3 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [2, 0] of 4x3 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [2, 1] of 4x3 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [2, 2] of 4x3 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [3, 0] of 4x3 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [3, 1] of 4x3 grid
+[World rank 11] [Cart rank 11] :: same rank :: --> coords [3, 2] of 4x3 grid
+After all communication, coords [0, 0] have neighbours values [3 9 2 1] + own 0  -> average = 3.0
+After all communication, coords [0, 1] have neighbours values [ 4 10  0  2] + own 1  -> average = 3.4
+After all communication, coords [0, 2] have neighbours values [ 5 11  1  0] + own 2  -> average = 3.8
+After all communication, coords [1, 0] have neighbours values [6 0 5 4] + own 3  -> average = 3.6
+After all communication, coords [1, 1] have neighbours values [7 1 3 5] + own 4  -> average = 4.0
+After all communication, coords [1, 2] have neighbours values [8 2 4 3] + own 5  -> average = 4.4
+After all communication, coords [2, 0] have neighbours values [9 3 8 7] + own 6  -> average = 6.6
+After all communication, coords [2, 1] have neighbours values [10  4  6  8] + own 7  -> average = 7.0
+After all communication, coords [2, 2] have neighbours values [11  5  7  6] + own 8  -> average = 7.4
+After all communication, coords [3, 0] have neighbours values [ 0  6 11 10] + own 9  -> average = 7.2
+After all communication, coords [3, 1] have neighbours values [ 1  7  9 11] + own 10  -> average = 7.6
+After all communication, coords [3, 2] have neighbours values [ 2  8 10  9] + own 11  -> average = 8.0
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(3, 9, 2, 1)  avg5=3.00  row_avg=1.00  col_avg=4.50
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(4, 10, 0, 2)  avg5=3.40  row_avg=1.00  col_avg=5.50
+[W 2 C 2 at [0, 2]] nbrs(N,S,E,W)=(5, 11, 1, 0)  avg5=3.80  row_avg=1.00  col_avg=6.50
+[W 3 C 3 at [1, 0]] nbrs(N,S,E,W)=(6, 0, 5, 4)  avg5=3.60  row_avg=4.00  col_avg=4.50
+[W 4 C 4 at [1, 1]] nbrs(N,S,E,W)=(7, 1, 3, 5)  avg5=4.00  row_avg=4.00  col_avg=5.50
+[W 5 C 5 at [1, 2]] nbrs(N,S,E,W)=(8, 2, 4, 3)  avg5=4.40  row_avg=4.00  col_avg=6.50
+[W 6 C 6 at [2, 0]] nbrs(N,S,E,W)=(9, 3, 8, 7)  avg5=6.60  row_avg=7.00  col_avg=4.50
+[W 7 C 7 at [2, 1]] nbrs(N,S,E,W)=(10, 4, 6, 8)  avg5=7.00  row_avg=7.00  col_avg=5.50
+[W 8 C 8 at [2, 2]] nbrs(N,S,E,W)=(11, 5, 7, 6)  avg5=7.40  row_avg=7.00  col_avg=6.50
+[W 9 C 9 at [3, 0]] nbrs(N,S,E,W)=(0, 6, 11, 10)  avg5=7.20  row_avg=10.00  col_avg=4.50
+[W10 C10 at [3, 1]] nbrs(N,S,E,W)=(1, 7, 9, 11)  avg5=7.60  row_avg=10.00  col_avg=5.50
+[W11 C11 at [3, 2]] nbrs(N,S,E,W)=(2, 8, 10, 9)  avg5=8.00  row_avg=10.00  col_avg=6.50
+
+Script execution time: 0.01413 seconds
+
+13
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 13x1 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [1, 0] of 13x1 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [2, 0] of 13x1 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [3, 0] of 13x1 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [4, 0] of 13x1 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [5, 0] of 13x1 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [6, 0] of 13x1 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [7, 0] of 13x1 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [8, 0] of 13x1 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [9, 0] of 13x1 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [10, 0] of 13x1 grid
+[World rank 11] [Cart rank 11] :: same rank :: --> coords [11, 0] of 13x1 grid
+[World rank 12] [Cart rank 12] :: same rank :: --> coords [12, 0] of 13x1 grid
+After all communication, coords [0, 0] have neighbours values [ 1 12  0  0] + own 0  -> average = 2.6
+After all communication, coords [1, 0] have neighbours values [2 0 1 1] + own 1  -> average = 1.0
+After all communication, coords [2, 0] have neighbours values [3 1 2 2] + own 2  -> average = 2.0
+After all communication, coords [3, 0] have neighbours values [4 2 3 3] + own 3  -> average = 3.0
+After all communication, coords [4, 0] have neighbours values [5 3 4 4] + own 4  -> average = 4.0
+After all communication, coords [5, 0] have neighbours values [6 4 5 5] + own 5  -> average = 5.0
+After all communication, coords [6, 0] have neighbours values [7 5 6 6] + own 6  -> average = 6.0
+After all communication, coords [7, 0] have neighbours values [8 6 7 7] + own 7  -> average = 7.0
+After all communication, coords [8, 0] have neighbours values [9 7 8 8] + own 8  -> average = 8.0
+After all communication, coords [9, 0] have neighbours values [10  8  9  9] + own 9  -> average = 9.0
+After all communication, coords [10, 0] have neighbours values [11  9 10 10] + own 10  -> average = 10.0
+After all communication, coords [11, 0] have neighbours values [12 10 11 11] + own 11  -> average = 11.0
+After all communication, coords [12, 0] have neighbours values [ 0 11 12 12] + own 12  -> average = 9.4
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(1, 12, 0, 0)  avg5=2.60  row_avg=0.00  col_avg=6.00
+[W 1 C 1 at [1, 0]] nbrs(N,S,E,W)=(2, 0, 1, 1)  avg5=1.00  row_avg=1.00  col_avg=6.00
+[W 2 C 2 at [2, 0]] nbrs(N,S,E,W)=(3, 1, 2, 2)  avg5=2.00  row_avg=2.00  col_avg=6.00
+[W 3 C 3 at [3, 0]] nbrs(N,S,E,W)=(4, 2, 3, 3)  avg5=3.00  row_avg=3.00  col_avg=6.00
+[W 4 C 4 at [4, 0]] nbrs(N,S,E,W)=(5, 3, 4, 4)  avg5=4.00  row_avg=4.00  col_avg=6.00
+[W 5 C 5 at [5, 0]] nbrs(N,S,E,W)=(6, 4, 5, 5)  avg5=5.00  row_avg=5.00  col_avg=6.00
+[W 6 C 6 at [6, 0]] nbrs(N,S,E,W)=(7, 5, 6, 6)  avg5=6.00  row_avg=6.00  col_avg=6.00
+[W 7 C 7 at [7, 0]] nbrs(N,S,E,W)=(8, 6, 7, 7)  avg5=7.00  row_avg=7.00  col_avg=6.00
+[W 8 C 8 at [8, 0]] nbrs(N,S,E,W)=(9, 7, 8, 8)  avg5=8.00  row_avg=8.00  col_avg=6.00
+[W 9 C 9 at [9, 0]] nbrs(N,S,E,W)=(10, 8, 9, 9)  avg5=9.00  row_avg=9.00  col_avg=6.00
+[W10 C10 at [10, 0]] nbrs(N,S,E,W)=(11, 9, 10, 10)  avg5=10.00  row_avg=10.00  col_avg=6.00
+[W11 C11 at [11, 0]] nbrs(N,S,E,W)=(12, 10, 11, 11)  avg5=11.00  row_avg=11.00  col_avg=6.00
+[W12 C12 at [12, 0]] nbrs(N,S,E,W)=(0, 11, 12, 12)  avg5=9.40  row_avg=12.00  col_avg=6.00
+
+Script execution time: 0.01309 seconds
+
+14
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 7x2 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 7x2 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [1, 0] of 7x2 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 1] of 7x2 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [2, 0] of 7x2 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [2, 1] of 7x2 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [3, 0] of 7x2 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [3, 1] of 7x2 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [4, 0] of 7x2 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [4, 1] of 7x2 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [5, 0] of 7x2 grid
+[World rank 11] [Cart rank 11] :: same rank :: --> coords [5, 1] of 7x2 grid
+[World rank 12] [Cart rank 12] :: same rank :: --> coords [6, 0] of 7x2 grid
+[World rank 13] [Cart rank 13] :: same rank :: --> coords [6, 1] of 7x2 grid
+After all communication, coords [0, 0] have neighbours values [ 2 12  1  1] + own 0  -> average = 3.2
+After all communication, coords [0, 1] have neighbours values [ 3 13  0  0] + own 1  -> average = 3.4
+After all communication, coords [1, 1] have neighbours values [5 1 2 2] + own 3  -> average = 2.6
+After all communication, coords [2, 1] have neighbours values [7 3 4 4] + own 5  -> average = 4.6
+After all communication, coords [3, 0] have neighbours values [8 4 7 7] + own 6  -> average = 6.4
+After all communication, coords [4, 1] have neighbours values [11  7  8  8] + own 9  -> average = 8.6
+After all communication, coords [5, 0] have neighbours values [12  8 11 11] + own 10  -> average = 10.4
+After all communication, coords [5, 1] have neighbours values [13  9 10 10] + own 11  -> average = 10.6
+After all communication, coords [1, 0] have neighbours values [4 0 3 3] + own 2  -> average = 2.4
+After all communication, coords [2, 0] have neighbours values [6 2 5 5] + own 4  -> average = 4.4
+After all communication, coords [3, 1] have neighbours values [9 5 6 6] + own 7  -> average = 6.6
+After all communication, coords [4, 0] have neighbours values [10  6  9  9] + own 8  -> average = 8.4
+After all communication, coords [6, 0] have neighbours values [ 0 10 13 13] + own 12  -> average = 9.6
+After all communication, coords [6, 1] have neighbours values [ 1 11 12 12] + own 13  -> average = 9.8
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(3, 13, 0, 0)  avg5=3.40  row_avg=0.50  col_avg=7.00
+[W 3 C 3 at [1, 1]] nbrs(N,S,E,W)=(5, 1, 2, 2)  avg5=2.60  row_avg=2.50  col_avg=7.00
+[W 5 C 5 at [2, 1]] nbrs(N,S,E,W)=(7, 3, 4, 4)  avg5=4.60  row_avg=4.50  col_avg=7.00
+[W 7 C 7 at [3, 1]] nbrs(N,S,E,W)=(9, 5, 6, 6)  avg5=6.60  row_avg=6.50  col_avg=7.00
+[W 9 C 9 at [4, 1]] nbrs(N,S,E,W)=(11, 7, 8, 8)  avg5=8.60  row_avg=8.50  col_avg=7.00
+[W11 C11 at [5, 1]] nbrs(N,S,E,W)=(13, 9, 10, 10)  avg5=10.60  row_avg=10.50  col_avg=7.00
+[W13 C13 at [6, 1]] nbrs(N,S,E,W)=(1, 11, 12, 12)  avg5=9.80  row_avg=12.50  col_avg=7.00
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(2, 12, 1, 1)  avg5=3.20  row_avg=0.50  col_avg=6.00
+[W 2 C 2 at [1, 0]] nbrs(N,S,E,W)=(4, 0, 3, 3)  avg5=2.40  row_avg=2.50  col_avg=6.00
+[W 4 C 4 at [2, 0]] nbrs(N,S,E,W)=(6, 2, 5, 5)  avg5=4.40  row_avg=4.50  col_avg=6.00
+[W 6 C 6 at [3, 0]] nbrs(N,S,E,W)=(8, 4, 7, 7)  avg5=6.40  row_avg=6.50  col_avg=6.00
+[W 8 C 8 at [4, 0]] nbrs(N,S,E,W)=(10, 6, 9, 9)  avg5=8.40  row_avg=8.50  col_avg=6.00
+[W10 C10 at [5, 0]] nbrs(N,S,E,W)=(12, 8, 11, 11)  avg5=10.40  row_avg=10.50  col_avg=6.00
+[W12 C12 at [6, 0]] nbrs(N,S,E,W)=(0, 10, 13, 13)  avg5=9.60  row_avg=12.50  col_avg=6.00
+
+Script execution time: 0.01483 seconds
+
+15
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 5x3 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 5x3 grid
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [0, 2] of 5x3 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [1, 0] of 5x3 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [1, 1] of 5x3 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [1, 2] of 5x3 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [2, 0] of 5x3 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [2, 1] of 5x3 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [2, 2] of 5x3 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [3, 0] of 5x3 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [3, 1] of 5x3 grid
+[World rank 11] [Cart rank 11] :: same rank :: --> coords [3, 2] of 5x3 grid
+[World rank 12] [Cart rank 12] :: same rank :: --> coords [4, 0] of 5x3 grid
+[World rank 13] [Cart rank 13] :: same rank :: --> coords [4, 1] of 5x3 grid
+[World rank 14] [Cart rank 14] :: same rank :: --> coords [4, 2] of 5x3 grid
+After all communication, coords [1, 1] have neighbours values [7 1 3 5] + own 4  -> average = 4.0
+After all communication, coords [0, 0] have neighbours values [ 3 12  2  1] + own 0  -> average = 3.6
+After all communication, coords [0, 1] have neighbours values [ 4 13  0  2] + own 1  -> average = 4.0
+After all communication, coords [0, 2] have neighbours values [ 5 14  1  0] + own 2  -> average = 4.4
+After all communication, coords [1, 0] have neighbours values [6 0 5 4] + own 3  -> average = 3.6
+After all communication, coords [1, 2] have neighbours values [8 2 4 3] + own 5  -> average = 4.4
+After all communication, coords [2, 2] have neighbours values [11  5  7  6] + own 8  -> average = 7.4
+After all communication, coords [3, 0] have neighbours values [12  6 11 10] + own 9  -> average = 9.6
+After all communication, coords [3, 1] have neighbours values [13  7  9 11] + own 10  -> average = 10.0
+After all communication, coords [3, 2] have neighbours values [14  8 10  9] + own 11  -> average = 10.4
+After all communication, coords [4, 0] have neighbours values [ 0  9 14 13] + own 12  -> average = 9.6
+After all communication, coords [4, 1] have neighbours values [ 1 10 12 14] + own 13  -> average = 10.0
+After all communication, coords [4, 2] have neighbours values [ 2 11 13 12] + own 14  -> average = 10.4
+After all communication, coords [2, 0] have neighbours values [9 3 8 7] + own 6  -> average = 6.6
+After all communication, coords [2, 1] have neighbours values [10  4  6  8] + own 7  -> average = 7.0
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(3, 12, 2, 1)  avg5=3.60  row_avg=1.00  col_avg=6.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(4, 13, 0, 2)  avg5=4.00  row_avg=1.00  col_avg=7.00
+[W 3 C 3 at [1, 0]] nbrs(N,S,E,W)=(6, 0, 5, 4)  avg5=3.60  row_avg=4.00  col_avg=6.00
+[W 4 C 4 at [1, 1]] nbrs(N,S,E,W)=(7, 1, 3, 5)  avg5=4.00  row_avg=4.00  col_avg=7.00
+[W 6 C 6 at [2, 0]] nbrs(N,S,E,W)=(9, 3, 8, 7)  avg5=6.60  row_avg=7.00  col_avg=6.00
+[W 7 C 7 at [2, 1]] nbrs(N,S,E,W)=(10, 4, 6, 8)  avg5=7.00  row_avg=7.00  col_avg=7.00
+[W 9 C 9 at [3, 0]] nbrs(N,S,E,W)=(12, 6, 11, 10)  avg5=9.60  row_avg=10.00  col_avg=6.00
+[W10 C10 at [3, 1]] nbrs(N,S,E,W)=(13, 7, 9, 11)  avg5=10.00  row_avg=10.00  col_avg=7.00
+[W12 C12 at [4, 0]] nbrs(N,S,E,W)=(0, 9, 14, 13)  avg5=9.60  row_avg=13.00  col_avg=6.00
+[W13 C13 at [4, 1]] nbrs(N,S,E,W)=(1, 10, 12, 14)  avg5=10.00  row_avg=13.00  col_avg=7.00
+[W14 C14 at [4, 2]] nbrs(N,S,E,W)=(2, 11, 13, 12)  avg5=10.40  row_avg=13.00  col_avg=8.00
+[W 2 C 2 at [0, 2]] nbrs(N,S,E,W)=(5, 14, 1, 0)  avg5=4.40  row_avg=1.00  col_avg=8.00
+[W 5 C 5 at [1, 2]] nbrs(N,S,E,W)=(8, 2, 4, 3)  avg5=4.40  row_avg=4.00  col_avg=8.00
+[W 8 C 8 at [2, 2]] nbrs(N,S,E,W)=(11, 5, 7, 6)  avg5=7.40  row_avg=7.00  col_avg=8.00
+[W11 C11 at [3, 2]] nbrs(N,S,E,W)=(14, 8, 10, 9)  avg5=10.40  row_avg=10.00  col_avg=8.00
+
+Script execution time: 0.01127 seconds
+
+16
+[World rank  2] [Cart rank  2] :: same rank :: --> coords [0, 2] of 4x4 grid
+[World rank  3] [Cart rank  3] :: same rank :: --> coords [0, 3] of 4x4 grid
+[World rank  4] [Cart rank  4] :: same rank :: --> coords [1, 0] of 4x4 grid
+[World rank  5] [Cart rank  5] :: same rank :: --> coords [1, 1] of 4x4 grid
+[World rank  6] [Cart rank  6] :: same rank :: --> coords [1, 2] of 4x4 grid
+[World rank  7] [Cart rank  7] :: same rank :: --> coords [1, 3] of 4x4 grid
+[World rank  8] [Cart rank  8] :: same rank :: --> coords [2, 0] of 4x4 grid
+[World rank  9] [Cart rank  9] :: same rank :: --> coords [2, 1] of 4x4 grid
+[World rank 10] [Cart rank 10] :: same rank :: --> coords [2, 2] of 4x4 grid
+[World rank 11] [Cart rank 11] :: same rank :: --> coords [2, 3] of 4x4 grid
+[World rank 12] [Cart rank 12] :: same rank :: --> coords [3, 0] of 4x4 grid
+[World rank 13] [Cart rank 13] :: same rank :: --> coords [3, 1] of 4x4 grid
+[World rank 14] [Cart rank 14] :: same rank :: --> coords [3, 2] of 4x4 grid
+[World rank 15] [Cart rank 15] :: same rank :: --> coords [3, 3] of 4x4 grid
+[World rank  0] [Cart rank  0] :: same rank :: --> coords [0, 0] of 4x4 grid
+[World rank  1] [Cart rank  1] :: same rank :: --> coords [0, 1] of 4x4 grid
+After all communication, coords [2, 2] have neighbours values [14  6  9 11] + own 10  -> average = 10.0
+After all communication, coords [3, 0] have neighbours values [ 0  8 15 13] + own 12  -> average = 9.6
+After all communication, coords [3, 1] have neighbours values [ 1  9 12 14] + own 13  -> average = 9.8
+After all communication, coords [3, 3] have neighbours values [ 3 11 14 12] + own 15  -> average = 11.0
+After all communication, coords [0, 0] have neighbours values [ 4 12  3  1] + own 0  -> average = 4.0
+After all communication, coords [0, 1] have neighbours values [ 5 13  0  2] + own 1  -> average = 4.2
+After all communication, coords [0, 2] have neighbours values [ 6 14  1  3] + own 2  -> average = 5.2
+After all communication, coords [0, 3] have neighbours values [ 7 15  2  0] + own 3  -> average = 5.4
+After all communication, coords [1, 0] have neighbours values [8 0 7 5] + own 4  -> average = 4.8
+After all communication, coords [1, 1] have neighbours values [9 1 4 6] + own 5  -> average = 5.0
+After all communication, coords [1, 2] have neighbours values [10  2  5  7] + own 6  -> average = 6.0
+After all communication, coords [1, 3] have neighbours values [11  3  6  4] + own 7  -> average = 6.2
+After all communication, coords [2, 0] have neighbours values [12  4 11  9] + own 8  -> average = 8.8
+After all communication, coords [2, 1] have neighbours values [13  5  8 10] + own 9  -> average = 9.0
+After all communication, coords [2, 3] have neighbours values [15  7 10  8] + own 11  -> average = 10.2
+After all communication, coords [3, 2] have neighbours values [ 2 10 13 15] + own 14  -> average = 10.8
+[W 8 C 8 at [2, 0]] nbrs(N,S,E,W)=(12, 4, 11, 9)  avg5=8.80  row_avg=9.50  col_avg=6.00
+[W 9 C 9 at [2, 1]] nbrs(N,S,E,W)=(13, 5, 8, 10)  avg5=9.00  row_avg=9.50  col_avg=7.00
+[W10 C10 at [2, 2]] nbrs(N,S,E,W)=(14, 6, 9, 11)  avg5=10.00  row_avg=9.50  col_avg=8.00
+[W11 C11 at [2, 3]] nbrs(N,S,E,W)=(15, 7, 10, 8)  avg5=10.20  row_avg=9.50  col_avg=9.00
+[W12 C12 at [3, 0]] nbrs(N,S,E,W)=(0, 8, 15, 13)  avg5=9.60  row_avg=13.50  col_avg=6.00
+[W13 C13 at [3, 1]] nbrs(N,S,E,W)=(1, 9, 12, 14)  avg5=9.80  row_avg=13.50  col_avg=7.00
+[W14 C14 at [3, 2]] nbrs(N,S,E,W)=(2, 10, 13, 15)  avg5=10.80  row_avg=13.50  col_avg=8.00
+[W15 C15 at [3, 3]] nbrs(N,S,E,W)=(3, 11, 14, 12)  avg5=11.00  row_avg=13.50  col_avg=9.00
+[W 0 C 0 at [0, 0]] nbrs(N,S,E,W)=(4, 12, 3, 1)  avg5=4.00  row_avg=1.50  col_avg=6.00
+[W 1 C 1 at [0, 1]] nbrs(N,S,E,W)=(5, 13, 0, 2)  avg5=4.20  row_avg=1.50  col_avg=7.00
+[W 2 C 2 at [0, 2]] nbrs(N,S,E,W)=(6, 14, 1, 3)  avg5=5.20  row_avg=1.50  col_avg=8.00
+[W 3 C 3 at [0, 3]] nbrs(N,S,E,W)=(7, 15, 2, 0)  avg5=5.40  row_avg=1.50  col_avg=9.00
+[W 4 C 4 at [1, 0]] nbrs(N,S,E,W)=(8, 0, 7, 5)  avg5=4.80  row_avg=5.50  col_avg=6.00
+[W 5 C 5 at [1, 1]] nbrs(N,S,E,W)=(9, 1, 4, 6)  avg5=5.00  row_avg=5.50  col_avg=7.00
+[W 6 C 6 at [1, 2]] nbrs(N,S,E,W)=(10, 2, 5, 7)  avg5=6.00  row_avg=5.50  col_avg=8.00
+[W 7 C 7 at [1, 3]] nbrs(N,S,E,W)=(11, 3, 6, 4)  avg5=6.20  row_avg=5.50  col_avg=9.00
+
+Script execution time: 0.00508 seconds
+

@@ -1,2 +1,9 @@
-for num in {2..8}; do qsub script_job_"$num".sh; done
-for num in {9..16}; do qsub script_job_"$num".sh; done
+# submit multiple jobs
+for num in {2..6}; do qsub script_job_"$num".sh; done
+for num in {7..12}; do qsub script_job_"$num".sh; done
+for num in {13..16}; do qsub script_job_"$num".sh; done
+
+
+# read the output files after all jobs are submitted
+for num in {2..16}; do echo "$num" >> results.txt ; cat output_"$num".out >> results.txt; done
+
