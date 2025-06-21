@@ -12,7 +12,7 @@ module load oneapi/mkl
 module load oneapi/mpi
 module load IMPI/west5.4.0
 
-MYHOME="/home/corsohpc1/"
+MYHOME="/home/corsohpc2/project_Brighenti/hpc_project"
 DIR_JOB=${MYHOME}
 cd $DIR_JOB
 mpirun -np 11 python3 project.py > output_11.out
