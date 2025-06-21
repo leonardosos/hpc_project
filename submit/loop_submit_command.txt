@@ -1,0 +1,2 @@
+for num in {2..8}; do qsub script_job_"$num".sh; done
+for num in {9..16}; do qsub script_job_"$num".sh; done
