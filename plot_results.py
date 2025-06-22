@@ -159,6 +159,59 @@ plt.tight_layout()
 plt.savefig(save_scatter_path, dpi=300, bbox_inches='tight')
 plt.show()
 
+"""
+# ------------------------------------------------------
+# Plot 4: Box plot for distribution analysis
+# ------------------------------------------------------
+
+fig4, ax4 = plt.subplots(1, 1, figsize=(12, 8))
+
+# Prepare data for box plot
+box_data = []
+box_labels = []
+process_counts = sorted(df['processes'].unique())
+
+for proc_count in process_counts:
+    subset = df[df['processes'] == proc_count]['execution_time']
+    box_data.append(subset.values)
+    box_labels.append(str(proc_count))
+
+# Create box plot
+bp = ax4.boxplot(box_data, labels=box_labels, patch_artist=True, 
+                 notch=True, showmeans=True, meanline=True)
+
+# Customize box plot colors
+colors = plt.cm.viridis(np.linspace(0, 1, len(box_data)))
+for patch, color in zip(bp['boxes'], colors):
+    patch.set_facecolor(color)
+    patch.set_alpha(0.7)
+
+# Customize other elements
+for element in ['whiskers', 'fliers', 'medians', 'caps']:
+    plt.setp(bp[element], color='black')
+    
+plt.setp(bp['means'], color='red', linewidth=2)
+
+ax4.set_xlabel('Number of Processes')
+ax4.set_ylabel('Execution Time (seconds)')
+ax4.set_title('Execution Time Distribution by Process Count (Box Plot)')
+ax4.grid(True, alpha=0.3)
+
+# Add legend
+from matplotlib.lines import Line2D
+legend_elements = [
+    Line2D([0], [0], color='black', linewidth=1, label='Median'),
+    Line2D([0], [0], color='red', linewidth=2, label='Mean'),
+    Line2D([0], [0], marker='o', color='w', markerfacecolor='black', 
+           markersize=4, label='Outliers', linestyle='None')
+]
+ax4.legend(handles=legend_elements, loc='upper right')
+
+plt.tight_layout()
+save_boxplot_path = '/home/leonardo/hpc/hpc_project/mpi_distribution_boxplot.png'
+plt.savefig(save_boxplot_path, dpi=300, bbox_inches='tight')
+plt.show()
+"""
 # ------------------------------------------------------------------
 # Report performance metrics with print statements
 # ------------------------------------------------------------------
