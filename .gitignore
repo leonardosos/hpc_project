@@ -2,3 +2,7 @@
 output*
 DAE*
 results.ods
+mpi_timing_results.csv
+hydra_results.txt
+mpi_performance_analysis.png
+task_distribution_scatter.png

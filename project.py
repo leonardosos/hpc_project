@@ -1,6 +1,12 @@
+# basic library imports
 from mpi4py import MPI
 import numpy as np
 import time
+
+# libraries for report file 
+import csv
+from datetime import datetime
+import os
 
 # Start timing the entire script
 start_time = time.time()
@@ -123,3 +129,37 @@ max_time = world_comm.reduce(execution_time, op=MPI.MAX, root=0)
 
 if world_rank == 0:
     print(f"\nScript execution time: {max_time:.5f} seconds\n", flush=True)
+
+# ------------------------------------------------------
+# 6) Save results to a file
+# ------------------------------------------------------
+
+if world_rank == 0:    
+    # Prepare data to save
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # CSV filename
+    csv_filename = "mpi_timing_results.csv"
+    
+    # Check if file exists to determine if we need headers
+    file_exists = os.path.exists(csv_filename)
+    
+    # Open CSV file in append mode
+    with open(csv_filename, 'a', newline='') as csvfile:
+        fieldnames = ['timestamp', 'processes', 'grid_rows', 'grid_cols', 'execution_time']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        # Write header if file is new
+        if not file_exists:
+            writer.writeheader()
+        
+        # Write the current run data
+        writer.writerow({
+            'timestamp': timestamp,
+            'processes': world_size,
+            'grid_rows': dims[0],
+            'grid_cols': dims[1],
+            'execution_time': max_time
+        })
+    
+    print(f"Results saved to {csv_filename}", flush=True)
