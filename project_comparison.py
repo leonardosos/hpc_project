@@ -25,9 +25,9 @@ any performance overhead compared to explicit calls in MPI applications.
 
 RESULTS:
 
-Script execution time: 0.00374 seconds (1A)
-Script execution time: 0.00168 seconds (2B)
+Script execution time: 0.00058 seconds (1A)
 
+Script execution time: 0.00020 seconds (2B)
 
 """
 
@@ -169,8 +169,8 @@ total_time_2 = end_time_2 - start_time_2
 # ------------------------------------------------------------------
 
 # Reduce to get the maximum time across all processes
-total_time_1 = world_comm.reduce(total_time_1, op=MPI.SUM, root=0)
-total_time_2 = world_comm.reduce(total_time_2, op=MPI.SUM, root=0)
+total_time_1 = world_comm.reduce(total_time_1, op=MPI.MAX, root=0)
+total_time_2 = world_comm.reduce(total_time_2, op=MPI.MAX, root=0)
 
 
 if world_rank == 0:
