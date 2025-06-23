@@ -21,7 +21,7 @@ PLOTS_TO_GENERATE = {
 
 # Speedup reference configuration
 SPEEDUP_REFERENCE = {
-    'use_process_count': 1,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
+    'use_process_count': 2,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
     'use_metric': 'mean'     # 'mean' or 'median'
 }
 
@@ -408,7 +408,7 @@ if PLOTS_TO_GENERATE['box_plot']:
 if PLOTS_TO_GENERATE['configurable_speedup']:
     fig5, ax5 = plt.subplots(1, 1, figsize=(12, 8))
 
-    ax5.set_ylim(0, 1.1)  # Set y-axis limit for speedup factor
+    ax5.set_ylim(0, 5)  # Set y-axis limit for speedup factor
     
     # Calculate statistics for all process counts
     stats_by_process = df.groupby('processes')['execution_time'].agg(['mean', 'median']).reset_index()
