@@ -137,7 +137,7 @@ end_time = time.time()
 execution_time = end_time - start_time
 
 # Reduce to get time for all processes
-total_time = world_comm.reduce(execution_time, op=MPI.SUM, root=0)
+total_time = world_comm.reduce(execution_time, op=MPI.MAX, root=0)
 
 if world_rank == 0:
     print(f"\nScript execution time: {total_time:.5f} seconds\n", flush=True)
