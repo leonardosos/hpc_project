@@ -21,7 +21,7 @@ PLOTS_TO_GENERATE = {
 
 # Speedup reference configuration
 SPEEDUP_REFERENCE = {
-    'use_process_count': 2,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
+    'use_process_count': 1,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
     'use_metric': 'mean'     # 'mean' or 'median'
 }
 
