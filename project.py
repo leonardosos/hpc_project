@@ -136,7 +136,7 @@ print(f"[W{world_rank:2d} C{cart_rank:2d} at {coords}] "
 end_time = time.time()
 execution_time = end_time - start_time
 
-# Reduce to get the maximum time across all processes
+# Reduce to get time for all processes
 total_time = world_comm.reduce(execution_time, op=MPI.SUM, root=0)
 
 if world_rank == 0:
