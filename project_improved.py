@@ -101,6 +101,9 @@ row_indices, col_indices = np.indices(local_matrix.shape)
 # Create multiple matrix operations simultaneously for high computational cost
 base_matrix = np.sin(cart_rank + row_indices + col_indices) * np.exp(cart_rank * 0.1 + row_indices * 0.01 + col_indices * 0.01)
 
+if world_rank == 0:
+    print(f'la matrix is base_matrix {base_matrix}')
+
 # Multiple expensive matrix operations without loops
 matrix1 = np.cos(base_matrix) * np.sinh(row_indices * 0.002 + col_indices * 0.002)
 matrix2 = np.arctan(base_matrix * 0.1) * np.log(np.abs(base_matrix) + 1e-10)
@@ -109,7 +112,7 @@ matrix2 = np.arctan(base_matrix * 0.1) * np.log(np.abs(base_matrix) + 1e-10)
 local_matrix = (base_matrix + matrix1 + matrix2) / 3.0
 
 # Reduction operation
-local_value = (np.sum(local_matrix))
+local_value = np.sin((np.sum(local_matrix)))
 
 assert type(local_value) == np.float64
 
