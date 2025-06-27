@@ -17,7 +17,8 @@ This document describes the schema for the `mpi_timing_results.csv` file that st
 | `processes` | Integer | Number of MPI processes used in the experiment | `4` |
 | `grid_rows` | Integer | Number of rows in the computational grid | `100` |
 | `grid_cols` | Integer | Number of columns in the computational grid | `100` |
-| `execution_time` | Float | Total execution time in seconds (5 decimal precision) | `12.34567` |
+| `execution_time` | Float | Total execution time in seconds | `12.34567` |
+| `computation_time` | Float | Time spent on computational tasks in seconds | `8.92134` |
 
 ## Field Details
 
@@ -41,21 +42,31 @@ This document describes the schema for the `mpi_timing_results.csv` file that st
 
 ### execution_time
 
-- **Format**: Floating-point number with 5 decimal places
+- **Format**: Floating-point number
 - **Units**: Seconds
 - **Purpose**: Primary performance metric for timing analysis
 - **Precision**: Microsecond-level accuracy
 
+### computation_time
+
+This field captures the time spent on computational tasks added only on the project_changed.
+
+- **Format**: Floating-point number
+- **Units**: Seconds
+- **Purpose**: Time spent on computational tasks (matrix operations, calculations)
+- **Precision**: Microsecond-level accuracy
+- **Source**: Maximum computation time across all MPI processes
+
 ## Example CSV Content
 
 ```csv
-timestamp,processes,grid_rows,grid_cols,execution_time
-2025-06-23 14:30:45,1,100,100,45.67890
-2025-06-23 14:31:02,2,100,100,23.45123
-2025-06-23 14:31:18,4,100,100,12.34567
-2025-06-23 14:31:35,8,100,100,7.89012
-2025-06-23 14:32:15,4,200,200,48.76543
-2025-06-23 14:32:45,4,400,400,195.12345
+timestamp,processes,grid_rows,grid_cols,execution_time,computation_time
+2025-06-23 14:30:45,1,100,100,45.67890,35.12345
+2025-06-23 14:31:02,2,100,100,23.45123,18.67890
+2025-06-23 14:31:18,4,100,100,12.34567,8.92134
+2025-06-23 14:31:35,8,100,100,7.89012,5.43210
+2025-06-23 14:32:15,4,200,200,48.76543,42.15678
+2025-06-23 14:32:45,4,400,400,195.12345,187.98765
 ```
 
 ## Usage Notes
