@@ -101,15 +101,22 @@ row_indices, col_indices = np.indices(local_matrix.shape)
 # Create multiple matrix operations simultaneously for high computational cost
 base_matrix = np.sin(cart_rank + row_indices + col_indices) * np.exp(cart_rank * 0.1 + row_indices * 0.01 + col_indices * 0.01)
 
-if world_rank == 0:
-    print(f'la matrix is base_matrix {base_matrix}')
-
 # Multiple expensive matrix operations without loops
 matrix1 = np.cos(base_matrix) * np.sinh(row_indices * 0.002 + col_indices * 0.002)
 matrix2 = np.arctan(base_matrix * 0.1) * np.log(np.abs(base_matrix) + 1e-10)
+matrix3 = np.tan(base_matrix * 0.05) * np.sqrt(np.abs(base_matrix) + 1e-10)
+matrix4 = np.cos(base_matrix) * np.sinh(row_indices * 0.003 + col_indices * 0.002)
+matrix5 = np.cos(base_matrix) * np.sinh(row_indices * 0.004 + col_indices * 0.002)
+matrix6 = np.arctan(base_matrix * 0.2) * np.log(np.abs(base_matrix) + 1e-10)
+value1 = np.linalg.norm(matrix1, axis=0)  # Norm of matrix1
+value2 = np.linalg.norm(matrix2, axis=0)  # Norm of matrix2
+value3 = np.linalg.norm(matrix3, axis=0)  # Norm of matrix3
+value4 = np.linalg.norm(matrix4, axis=0)  # Norm of matrix4
+value5 = np.linalg.norm(matrix5, axis=0)  # Norm of matrix5
+value6 = np.linalg.norm(matrix6, axis=0)  # Norm of matrix6
 
 # Combine all expensive operations with same dimensions
-local_matrix = (base_matrix + matrix1 + matrix2) / 3.0
+local_matrix = (base_matrix * matrix1 * matrix2 * matrix3 + matrix4 + matrix5 + matrix6) / 7.0
 
 # Reduction operation
 local_value = np.sin((np.sum(local_matrix)))
@@ -172,8 +179,8 @@ cart_comm.Sendrecv(
 total = local_value + np.sum(nbr_buf, dtype=np.float64)  
 avg_5 = total / 5.0
 
-print(f'After all communication, coords {coords} have neighbours values {nbr_buf} + own {local_value}  '
-      f'-> average = {avg_5}', flush=True)
+#print(f'After all communication, coords {coords} have neighbours values {nbr_buf} + own {local_value}  '
+#      f'-> average = {avg_5}', flush=True)
  
 # ------------------------------------------------------------------
 # 3) Build row- and column- subcommunicators & compute averages

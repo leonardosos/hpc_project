@@ -27,6 +27,27 @@ SPEEDUP_REFERENCE = {
     'use_metric': 'mean'     # 'mean' or 'median'
 }
 
+
+
+# Configuration: Enable/disable specific plots
+PLOTS_TO_GENERATE = {
+    'mean_execution_time': False,     # Plot 1: Mean execution time vs process count
+    'speedup_analysis': True,        # Plot 2: Speedup calculation
+    'scatter_combined': False,        # Plot 3: Combined scatter with mean and median
+    'scatter_mean_only': False,      # Plot 3a: Scatter with mean analysis only
+    'scatter_median_only': False,    # Plot 3b: Scatter with median analysis only
+    'box_plot': False,                # Plot 4: Box plot distribution
+    'configurable_speedup': True,     # Plot 5: Speedup with configurable reference
+    'execution_vs_computation': True  # Plot 6: Execution vs Computation Time Comparison
+}
+# Speedup reference configuration
+SPEEDUP_REFERENCE = {
+    'use_process_count': 2,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
+    'use_metric': 'mean'     # 'mean' or 'median'
+}
+
+
+
 # Set up paths
 root_path = '/home/leonardo/hpc/hpc_project'
 images_dir = os.path.join(root_path, 'images')
@@ -576,48 +597,3 @@ if PLOTS_TO_GENERATE['execution_vs_computation']:
         overhead_pct = (overhead / exec_time) * 100
         
         print(f"{proc:<10} {exec_time:<12.6f} {comp_time:<12.6f} {overhead:<12.6f} {overhead_pct:<12.1f}")
-
-# ------------------------------------------------------------------
-# Report performance metrics with print statements
-# ------------------------------------------------------------------
-
-# Display basic information about the data
-print("Data overview:")
-print(df)
-print(f"\nData shape: {df.shape}")
-print(f"Unique process counts: {sorted(df['processes'].unique())}")
-print(f"\nGrid size range: {df['grid_rows'].min()}x{df['grid_cols'].min()} to {df['grid_rows'].max()}x{df['grid_cols'].max()}")
-
-# Display performance metrics
-print("\n" + "="*50)
-print("PERFORMANCE METRICS")
-print("="*50)
-
-# Calculate speedup values
-baseline_time = None
-for proc_count in sorted(df['processes'].unique()):
-    subset = df[df['processes'] == proc_count]
-    avg_time = subset['execution_time'].mean()
-    std_time = subset['execution_time'].std()
-    count = len(subset)
-    
-    # Set baseline (first/smallest process count) for speedup calculation
-    if baseline_time is None:
-        baseline_time = avg_time
-        speedup = 1.0
-    else:
-        speedup = baseline_time / avg_time
-    
-    print(f"Processes: {proc_count:2d} | Count: {count:2d} | Avg Time: {avg_time:.6f}s | Std Dev: {std_time:.6f}s | Speedup: {speedup:.3f}x")
-
-# Additional speedup analysis
-print("\n" + "="*25)
-print("SPEEDUP ANALYSIS")
-print("="*25)
-print(f"Baseline time (processes={sorted(df['processes'].unique())[0]}): {baseline_time:.6f}s")
-for proc_count in sorted(df['processes'].unique()):
-    subset = df[df['processes'] == proc_count]
-    avg_time = subset['execution_time'].mean()
-    speedup = baseline_time / avg_time
-    efficiency = speedup / proc_count * 100
-    print(f"Processes: {proc_count:2d} | Speedup: {speedup:.3f}x | Efficiency: {efficiency:.1f}%")
