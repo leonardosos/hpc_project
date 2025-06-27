@@ -4,11 +4,4 @@ DAE*
 results.ods
 mpi_timing_results.csv
 hydra_results.txt
-mpi_performance_analysis.png
-mpi_performance_mean.png
-mpi_speedup_analysis.png
-mpi_distribution_boxplot.png
-task_distribution_scatter.png
-task_distribution_scatter_mean.png
-task_distribution_scatter_median.png
-mpi_configurable_speedup.png
+images/*

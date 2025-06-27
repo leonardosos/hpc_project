@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 # print limit
 pd.set_option('display.max_columns', None)
@@ -16,20 +17,30 @@ PLOTS_TO_GENERATE = {
     'scatter_mean_only': True,      # Plot 3a: Scatter with mean analysis only
     'scatter_median_only': True,    # Plot 3b: Scatter with median analysis only
     'box_plot': True,                # Plot 4: Box plot distribution
-    'configurable_speedup': True     # Plot 5: Speedup with configurable reference
+    'configurable_speedup': True,     # Plot 5: Speedup with configurable reference
+    'execution_vs_computation': True  # Plot 6: Execution vs Computation Time Comparison
 }
 
 # Speedup reference configuration
 SPEEDUP_REFERENCE = {
-    'use_process_count': 2,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
+    'use_process_count': 1,  # Set the reference: from specific process count, or 'min' for minimum, 'max' for maximum
     'use_metric': 'mean'     # 'mean' or 'median'
 }
 
+# Set up paths
+root_path = '/home/leonardo/hpc/hpc_project'
+images_dir = os.path.join(root_path, 'images')
+csv_file = os.path.join(root_path, 'mpi_timing_results.csv')
+
+# Create images directory if it doesn't exist
+os.makedirs(images_dir, exist_ok=True)
+
+# Generate image paths based on PLOTS_TO_GENERATE keys
+image_paths = {}
+for plot_key in PLOTS_TO_GENERATE.keys():
+    image_paths[plot_key] = os.path.join(images_dir, f'{plot_key}.png')
+
 # Load the CSV file
-csv_file = '/home/leonardo/hpc/hpc_project/mpi_timing_results.csv'
-save_image_path1 = '/home/leonardo/hpc/hpc_project/mpi_performance_mean.png'
-save_image_path2 = '/home/leonardo/hpc/hpc_project/mpi_speedup_analysis.png'
-save_scatter_path = '/home/leonardo/hpc/hpc_project/task_distribution_scatter.png'
 df = pd.read_csv(csv_file)
 
 # Group by 'processes' and calculate mean execution time
@@ -63,7 +74,7 @@ if PLOTS_TO_GENERATE['mean_execution_time']:
     ax1.set_xlim(min(all_process_counts) - 0.5, max(all_process_counts) + 0.5)
 
     plt.tight_layout()
-    plt.savefig(save_image_path1, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['mean_execution_time'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -93,7 +104,7 @@ if PLOTS_TO_GENERATE['speedup_analysis']:
         ax2.set_title('Speedup Analysis (Insufficient Data)')
 
     plt.tight_layout()
-    plt.savefig(save_image_path2, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['speedup_analysis'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -190,7 +201,7 @@ if PLOTS_TO_GENERATE['scatter_combined']:
     ax3.set_ylim(bottom=text_y - 0.05 * y_range)
 
     plt.tight_layout()
-    plt.savefig(save_scatter_path, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['scatter_combined'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -270,8 +281,7 @@ if PLOTS_TO_GENERATE['scatter_mean_only']:
     ax3a.set_ylim(bottom=text_y - 0.05 * y_range)
 
     plt.tight_layout()
-    save_scatter_mean_path = '/home/leonardo/hpc/hpc_project/task_distribution_scatter_mean.png'
-    plt.savefig(save_scatter_mean_path, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['scatter_mean_only'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -344,8 +354,7 @@ if PLOTS_TO_GENERATE['scatter_median_only']:
     ax3b.set_ylim(bottom=text_y - 0.05 * y_range)
 
     plt.tight_layout()
-    save_scatter_median_path = '/home/leonardo/hpc/hpc_project/task_distribution_scatter_median.png'
-    plt.savefig(save_scatter_median_path, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['scatter_median_only'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -397,8 +406,7 @@ if PLOTS_TO_GENERATE['box_plot']:
     ax4.legend(handles=legend_elements, loc='upper right')
 
     plt.tight_layout()
-    save_boxplot_path = '/home/leonardo/hpc/hpc_project/mpi_distribution_boxplot.png'
-    plt.savefig(save_boxplot_path, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['box_plot'], dpi=300, bbox_inches='tight')
     plt.show()
 
 # ------------------------------------------------------
@@ -462,8 +470,7 @@ if PLOTS_TO_GENERATE['configurable_speedup']:
     ax5.axhline(y=1, color='black', linestyle=':', alpha=0.5, label='No speedup')
     
     plt.tight_layout()
-    save_speedup_config_path = '/home/leonardo/hpc/hpc_project/mpi_configurable_speedup.png'
-    plt.savefig(save_speedup_config_path, dpi=300, bbox_inches='tight')
+    plt.savefig(image_paths['configurable_speedup'], dpi=300, bbox_inches='tight')
     plt.show()
     
     # Print speedup summary for selected metric only
@@ -475,6 +482,100 @@ if PLOTS_TO_GENERATE['configurable_speedup']:
         proc = int(row['processes'])  # Convert to int
         speedup = speedup_values.iloc[i]
         print(f"Processes: {proc:2d} | Speedup({reference_metric.title()}): {speedup:.3f}x")
+
+# ------------------------------------------------------------------
+# Plot 6: Execution vs Computation Time Comparison
+# ------------------------------------------------------------------
+
+if PLOTS_TO_GENERATE['execution_vs_computation']:
+    # Group by processes and calculate means for both metrics
+    df_time_comparison = df.groupby('processes').agg({
+        'execution_time': ['mean', 'std'],
+        'computation_time': ['mean', 'std']
+    }).reset_index()
+    
+    # Flatten column names
+    df_time_comparison.columns = ['processes', 'exec_mean', 'exec_std', 'comp_mean', 'comp_std']
+    
+    fig6, (ax6a, ax6b) = plt.subplots(2, 1, figsize=(12, 10))
+    
+    # Top subplot: Line plot comparison
+    ax6a.plot(df_time_comparison['processes'], df_time_comparison['exec_mean'], 
+              'ro-', linewidth=2, markersize=8, label='Execution Time')
+    ax6a.plot(df_time_comparison['processes'], df_time_comparison['comp_mean'], 
+              'bo-', linewidth=2, markersize=8, label='Computation Time')
+    
+    # Add error bars
+    ax6a.errorbar(df_time_comparison['processes'], df_time_comparison['exec_mean'], 
+                  yerr=df_time_comparison['exec_std'], fmt='ro', capsize=5, alpha=0.7)
+    ax6a.errorbar(df_time_comparison['processes'], df_time_comparison['comp_mean'], 
+                  yerr=df_time_comparison['comp_std'], fmt='bo', capsize=5, alpha=0.7)
+    
+    # Add annotations for overhead calculation
+    for _, row in df_time_comparison.iterrows():
+        proc = row['processes']
+        exec_time = row['exec_mean']
+        comp_time = row['comp_mean']
+        overhead = exec_time - comp_time
+        overhead_pct = (overhead / exec_time) * 100
+        
+        ax6a.annotate(f'OH: {overhead:.2f}s\n({overhead_pct:.1f}%)', 
+                      (proc, exec_time), textcoords="offset points", 
+                      xytext=(0,15), ha='center', fontsize=8,
+                      bbox=dict(boxstyle='round,pad=0.3', facecolor='yellow', alpha=0.7))
+    
+    ax6a.set_xlabel('Number of Processes')
+    ax6a.set_ylabel('Time (seconds)')
+    ax6a.set_title('Execution Time vs Computation Time Comparison')
+    ax6a.legend(loc='lower left')
+    ax6a.grid(True, alpha=0.3)
+    
+    # Force x-axis to show all process counts
+    all_process_counts = sorted(df['processes'].unique())
+    ax6a.set_xticks(all_process_counts)
+    ax6a.set_xlim(min(all_process_counts) - 0.5, max(all_process_counts) + 0.5)
+    
+    # Bottom subplot: Overhead analysis
+    overhead_values = df_time_comparison['exec_mean'] - df_time_comparison['comp_mean']
+    overhead_percentage = (overhead_values / df_time_comparison['exec_mean']) * 100
+    
+    ax6b.bar(df_time_comparison['processes'], overhead_values, 
+             alpha=0.7, color='orange', label='Communication/Overhead Time')
+    ax6b.bar(df_time_comparison['processes'], df_time_comparison['comp_mean'], 
+             alpha=0.7, color='lightblue', label='Pure Computation Time')
+    
+    # Add percentage labels on bars
+    for i, (proc, overhead_pct) in enumerate(zip(df_time_comparison['processes'], overhead_percentage)):
+        ax6b.text(proc, df_time_comparison['comp_mean'].iloc[i] / 2, 
+                  f'{overhead_pct:.1f}%', ha='center', va='center', fontsize=9, fontweight='bold')
+    
+    ax6b.set_xlabel('Number of Processes')
+    ax6b.set_ylabel('Time (seconds)')
+    ax6b.set_title('Time Breakdown: Computation vs Communication/Overhead')
+    ax6b.legend()
+    ax6b.grid(True, alpha=0.3, axis='y')
+    ax6b.set_xticks(all_process_counts)
+    ax6b.set_xlim(min(all_process_counts) - 0.5, max(all_process_counts) + 0.5)
+    
+    plt.tight_layout()
+    plt.savefig(image_paths['execution_vs_computation'], dpi=300, bbox_inches='tight')
+    plt.show()
+    
+    # Print detailed time analysis
+    print("\n" + "="*70)
+    print("EXECUTION vs COMPUTATION TIME ANALYSIS")
+    print("="*70)
+    print(f"{'Processes':<10} {'Exec Time':<12} {'Comp Time':<12} {'Overhead':<12} {'Overhead %':<12}")
+    print("-" * 70)
+    
+    for _, row in df_time_comparison.iterrows():
+        proc = int(row['processes'])
+        exec_time = row['exec_mean']
+        comp_time = row['comp_mean']
+        overhead = exec_time - comp_time
+        overhead_pct = (overhead / exec_time) * 100
+        
+        print(f"{proc:<10} {exec_time:<12.6f} {comp_time:<12.6f} {overhead:<12.6f} {overhead_pct:<12.1f}")
 
 # ------------------------------------------------------------------
 # Report performance metrics with print statements
